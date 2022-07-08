@@ -16,8 +16,9 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-require('./config/mongoose.config')
+require('./config/mongoose.config');
 require('./routes/user.routes')(app);
+require('./routes/date.routes')(app);
 
 
 
