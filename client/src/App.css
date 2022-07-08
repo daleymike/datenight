@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+* {
+  font-family: "Tahoma";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav {
+  background-color: rgb(47, 168, 219);
+  padding: 20px;
+  border-bottom: 2px solid black;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navTitle {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 5px;
+  height: 110px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  color:black;
+  font-weight: bold;
+  border-bottom: 2px solid rgb(253, 184, 22);
+  border-top: 2px solid rgb(253, 184, 22);
 }
 
-.App-link {
-  color: #61dafb;
+.logout {
+  color:black ;
+  background-color:  rgb(47, 168, 219) ;
+  font-weight: bold;
+  height: 50px;
+  width: 135px;
+  border: 2px solid rgb(253, 184, 22);
+  box-shadow: 0 0 20px rgb(253, 184, 22);
+  margin: 3px;
+  border-radius: 5px;
+  transition-duration: 0.4s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logout:hover {
+  color: black;
+  background-color:  rgb(253, 184, 22);
+  border: 2px solid  rgb(47, 168, 219);
+  box-shadow: 0 0 20px  rgb(47, 168, 219);
 }
+
+.dateList {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.form-group{
+  margin-bottom: 20px
+}
+
