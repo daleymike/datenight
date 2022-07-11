@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useParams, Navigate } from "react-router-dom";
+import { useNavigate, useParams, Navigate, Link } from "react-router-dom";
 import Nav from "./Nav";
 
 const EditDate = () => {
@@ -60,6 +60,9 @@ const EditDate = () => {
   return (
     <div>
       <Nav />
+      <h2 style={{textAlign: 'center'}}>Edit Date Review</h2>
+      <br />
+      <div className="detailsBox" style={{margin: 'auto'}}>
       <form onSubmit={updateDate} className="form">
         {errors.map((err, index) => (
           <p style={{ color: "red", textAlign: "center" }} key={index}>
@@ -127,12 +130,14 @@ const EditDate = () => {
             <option value="5">&#9734;&#9734;&#9734;&#9734;&#9734;</option>
           </select>
         </div>
-        <div className="form-group">
-          <button className="btn btn-outline-dark" type="submit">
-            Update Review
+        <div style={{textAlign:'center'}}>
+          <button className="editBtn" type="submit">
+            Update 
           </button>
+          <Link to={"/dashboard"}><button className="homeBtn">Home</button></Link>
         </div>
       </form>
+      </div>
     </div>
   );
 };
