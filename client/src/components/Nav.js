@@ -6,6 +6,17 @@ import {useNavigate, Link} from 'react-router-dom';
 const Nav = () => {
     const navigate = useNavigate();
 
+    const logout = () => {
+      axios.post("http://localhost:8000/api/users/logout", {}, {withCredentials: true})
+      .then((res)=> {
+        console.log(res.data);
+        navigate('/');
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
+
 
     return (
       <div className="nav" style={{ justifyContent: "space-between" }}>
@@ -14,7 +25,7 @@ const Nav = () => {
         <p>Community-Reviewed Date Night Ideas</p>
         </div>
         <div>
-          <button className='logout'>
+          <button onClick={logout} className='logout'>
             Log Out
           </button>
         </div>
