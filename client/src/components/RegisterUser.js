@@ -41,59 +41,65 @@ const RegisterUser = (props) => {
         console.log(err);
         setErrs(err.response.data.errors);
       });
-    };
+  };
 
   return (
     <div>
       <h2>Register</h2>
-      {confirmReg ? <h4>{confirmReg}</h4> : null}
-      <form onSubmit={register}>
-        <div>
+      <p>{confirmReg ? { confirmReg } : null}</p>
+      <form className="form" onSubmit={register}>
+        <div className="form-group">
+          <p>{errs.username ? <span className="text-danger">{errs.username.message}</span> : null}</p>
           <label>Username</label>
-          {errs.username ? <span>{errs.username.message}</span> : null}
           <input
+            className="form-control"
             type="text"
             name="username"
             value={user.username}
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <div>
+        <div className="form-group">
+        <p>{errs.email ? <span className="text-danger">{errs.email.message}</span> : null}</p>
           <label>Email</label>
-          {errs.email ? <span>{errs.email.message}</span> : null}
           <input
+            className="form-control"
             type="text"
             name="email"
             value={user.email}
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <div>
+        <div className="form-group">
+        <p>{errs.password ? <span className="text-danger">{errs.password.message}</span> : null}</p>
           <label>Password</label>
-          {errs.password ? <span>{errs.username.password}</span> : null}
           <input
+            className="form-control"
             type="password"
             name="password"
             value={user.password}
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <div>
+        <div className="form-group">
+        <p>{errs.confirmPassword ? <span className="text-danger">{errs.confirmPassword.message}</span> : null}</p>
           <label>Confirm Password</label>
-          {errs.confirmPassword ? <span>{errs.username.password}</span> : null}
           <input
+            className="form-control"
             type="password"
             name="confirmPassword"
             value={user.confirmPassword}
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <div>
-          <button type="submit">Register</button>
+        <div style={{ textAlign: "center" }}>
+          <button className="btn btn-outline-dark" type="submit">
+            Register
+          </button>
         </div>
       </form>
     </div>
-  )
+  );
 };
 
 export default RegisterUser;
