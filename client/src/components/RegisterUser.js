@@ -34,7 +34,7 @@ const RegisterUser = (props) => {
           password: "",
           confirmPassword: "",
         });
-        setConfirmReg("Thank you for Registering, you can now log in!");
+        setConfirmReg("Thank you for registering, you can now log in!");
         setErrs({});
       })
       .catch((err) => {
@@ -46,7 +46,7 @@ const RegisterUser = (props) => {
   return (
     <div>
       <h2>Register</h2>
-      <p>{confirmReg ? { confirmReg } : null}</p>
+      <p className="text-success">{confirmReg}</p>
       <form className="form" onSubmit={register}>
         <div className="form-group">
           <p>{errs.username ? <span className="text-danger">{errs.username.message}</span> : null}</p>

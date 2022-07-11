@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, Link, Navigate } from "react-router-dom";
+import { useNavigate, Link, Navigate, useParams } from "react-router-dom";
 import Nav from "./Nav";
 
 
@@ -13,6 +13,7 @@ const Dashboard = () => {
   const [rating, setRating] = useState(0);
   const [errors, setErrors] = useState([]);
   const [createDate, setCreateDate] = useState(false);
+  
 
   const navigate = useNavigate();
 
@@ -65,7 +66,7 @@ const Dashboard = () => {
     <div>
       <Nav />
       <div className="container">
-        <h2 style={{ textAlign: "center" }}> Dashboard</h2>
+        <h2 style={{ textAlign: "center" }}>Dashboard</h2>
         <br />
         <br />
         <div className="d-flex justify-content-between">
