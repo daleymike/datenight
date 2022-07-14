@@ -83,5 +83,11 @@ module.exports = {
         console.log("Logging Out");
         res.clearCookie("usertoken");
         res.json({message: "Successfully Logged Out"});
+    },
+
+    getOneUser: (req, res) => {
+        User.findOne({email: req.params.email})
+        .then((user) => res.json(user))
+        .catch((err) => res.json(err))
     }
 }

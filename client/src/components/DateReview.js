@@ -7,6 +7,7 @@ const DateReview = (props) => {
   const { _id } = useParams();
   const [date, setDate] = useState({});
   const navigate = useNavigate();
+  const {user} = props;
 
   useEffect(() => {
     axios
@@ -53,12 +54,10 @@ const DateReview = (props) => {
           <br />
           <div className="d-flex justify-content-around">
           <Link to={"/dashboard"}> <button className="homeBtn">Home</button></Link>
-          <Link to={`/dates/${date._id}/edit`}><button className="editBtn" >
-            Edit
-          </button></Link>
-          <button onClick={handleDelete} className="deleteBtn">
-            Delete
-          </button>
+          {date.user_id == user._id ? 
+          <>
+            <Link to={`/dates/${date._id}/edit`}><button className="editBtn" >Edit</button></Link>
+          <button onClick={handleDelete} className="deleteBtn">Delete</button></> : null}
           </div>
         </div>
       </div>

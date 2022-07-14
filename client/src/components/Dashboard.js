@@ -4,7 +4,7 @@ import { useNavigate, Link, Navigate, useParams } from "react-router-dom";
 import Nav from "./Nav";
 
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const [allDates, setAllDates] = useState([]);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -13,6 +13,9 @@ const Dashboard = () => {
   const [rating, setRating] = useState(0);
   const [errors, setErrors] = useState([]);
   const [createDate, setCreateDate] = useState(false);
+  const {userEmail} = props;
+  const {user, setUser} = props;
+  
   
 
   const navigate = useNavigate();
@@ -29,6 +32,7 @@ const Dashboard = () => {
           location: location,
           description: description,
           rating: rating,
+          user_id: user._id
         },
         { withCredentials: true }
       )
@@ -62,11 +66,21 @@ const Dashboard = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/user/" + userEmail)
+    .then((res) => {
+      setUser(res.data);
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }, [])
+
   return (
     <div>
       <Nav />
       <div className="container">
-        <h2 style={{ textAlign: "center" }}>Dashboard</h2>
+        <h2 style={{ textAlign: "center" }}> {user.username}'s Dashboard</h2>
         <br />
         <br />
         <div className="d-flex justify-content-between">
@@ -119,6 +133,7 @@ const Dashboard = () => {
                   </p>
                 ))}
                 <div className="form-group">
+                  <input type="hidden" name="user_id" value={user._id} />
                   <label>Date Name </label>
                   <input
                     className="form-control"
