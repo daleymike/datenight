@@ -80,7 +80,7 @@ const Dashboard = (props) => {
     <div>
       <Nav />
       <div className="container">
-        <h2 style={{ textAlign: "center" }}> {user.username}'s Dashboard</h2>
+        <h2 style={{ textAlign: "center" }}>Welcome back, {user.username}!</h2>
         <br />
         <br />
         <div className="d-flex justify-content-between">

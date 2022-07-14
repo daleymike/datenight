@@ -37,7 +37,7 @@ module.exports = {
                 .then((isPasswordValid) => {
                     // successfully compared password values, but the boolean tells us if they match
                     if(isPasswordValid === true){
-                        console.log('password is valid');
+
                         // create a cookie object
                         // can be called whatever you want
                         res.cookie("usertoken", 

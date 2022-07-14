@@ -5,10 +5,10 @@ const Protected = ({isLoggedIn, children, setProtectedError}) => {
 
     useEffect(() => {
         if(!isLoggedIn){
-            setProtectedError("You must be logged in to view that page")
+            setProtectedError("Please login to view that page")
         }
     },[])
-    
+
     if(!isLoggedIn) {
         return <Navigate to="/" replace />
     }; 
