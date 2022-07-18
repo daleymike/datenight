@@ -9,4 +9,6 @@ module.exports = (app) => {
   app.post("/api/users/logout", UserController.logout);
   // find one user
   app.get("/api/user/:email", UserController.getOneUser);
+  // get user by id
+  app.get("/api/user/id/:user_id", UserController.getOneUserWithId);
 };

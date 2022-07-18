@@ -8,6 +8,7 @@ const DateReview = (props) => {
   const [date, setDate] = useState({});
   const navigate = useNavigate();
   const {user} = props;
+  const [recipeCreator, setRecipeCreator] = useState({});
 
   useEffect(() => {
     axios
@@ -20,6 +21,17 @@ const DateReview = (props) => {
       });
   }, []);
 
+  useEffect(() => {
+    axios
+    .get("http://localhost:8000/api/user/id/" + date.user_id)
+    .then((res) => {
+      setRecipeCreator(res.data)
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  },[date])
+
   const handleDelete = () => {
     axios
       .delete(
@@ -31,6 +43,8 @@ const DateReview = (props) => {
       })
       .catch((err) => console.log(err.response.data.errors));
   };
+
+
 
   return (
     <div>
@@ -50,6 +64,9 @@ const DateReview = (props) => {
           <hr />
           <p style={{fontWeight: 'bold'}}>Rating</p>
           <p>{date.rating} <span className="colorText">&#9733;</span></p>
+          <hr />
+          <p style={{fontWeight: 'bold'}}>Created By</p>
+          <p>{recipeCreator.username}</p>
           <hr />
           <br />
           <div className="d-flex justify-content-around">
